@@ -9,6 +9,7 @@ from bot.embeds.button_navigation.ui_math_embed import math_embed
 
 from bot.utils.todo import list_todos_from_csv
 from bot.embeds.todos_embed import todos_embed
+from bot.embeds.todo_empty_embed import empty_todo_embed
 from bot.views.delete_todo_view import DeleteToDoView
 
 
@@ -31,13 +32,8 @@ class YesNoView(discord.ui.View):
             view = DeleteToDoView()
             await interaction.response.send_message(embed=todos_embed(todos), view=view)
         else:
-            empty_embed = discord.Embed(
-                title="❌ No Todos Found!",
-                description="Your todo list is currently empty. Add some tasks to get started!",
-                color=discord.Color.red()
-            )
             view = DeleteToDoView()
-            await interaction.response.send_message(embed=empty_embed, view=view, ephemeral=False)
+            await interaction.response.send_message(embed=empty_todo_embed(), view=view, ephemeral=False)
 
     @discord.ui.button(label="Math", style=discord.ButtonStyle.blurple)
     async def math_questions(self, interaction: discord.Interaction, button: Button):

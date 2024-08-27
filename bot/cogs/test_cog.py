@@ -2,8 +2,8 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 
-from bot.embeds.ui_index_embed import index_embed
-from bot.views.ui_index_view import YesNoView
+from bot.embeds.button_navigation.ui_index_embed import index_embed
+from bot.views.button_navigation.ui_index_view import YesNoView
 
 
 class TestCog(commands.Cog):
