@@ -7,10 +7,7 @@ from bot.views.button_navigation.ui_math_topic_view import MathTopicView
 from bot.embeds.button_navigation.ui_study_embed import study_embed
 from bot.embeds.button_navigation.ui_math_embed import math_embed
 
-from bot.utils.todo import list_todos_from_csv
-from bot.embeds.todos_embed import todos_embed
-from bot.embeds.todo_empty_embed import empty_todo_embed
-from bot.views.delete_todo_view import DeleteToDoView
+from bot.utils.display_todo_list import display_todo_list
 
 
 class YesNoView(discord.ui.View):
@@ -25,15 +22,7 @@ class YesNoView(discord.ui.View):
 
     @discord.ui.button(label="To do", style=discord.ButtonStyle.blurple)
     async def to_do_list(self, interaction: discord.Interaction, button: Button):
-        user_id = str(interaction.user.id)
-
-        todos = list_todos_from_csv(user_id)
-        if todos:
-            view = DeleteToDoView()
-            await interaction.response.send_message(embed=todos_embed(todos), view=view)
-        else:
-            view = DeleteToDoView()
-            await interaction.response.send_message(embed=empty_todo_embed(), view=view, ephemeral=False)
+        await display_todo_list(interaction)
 
     @discord.ui.button(label="Math", style=discord.ButtonStyle.blurple)
     async def math_questions(self, interaction: discord.Interaction, button: Button):
