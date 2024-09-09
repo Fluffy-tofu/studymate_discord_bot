@@ -43,7 +43,7 @@ def create_graph_function_showcase():
         inline=False
     )
 
-    embed.set_footer(text="Use these functions and terms to create your mathematical expressions for graphing! Example: sin(x) + log(x) - x^2")
+    embed.set_footer(text="Use these functions and terms to create your mathematical expressions for graphing! Example: sin(x) + log(x) - x^3")
 
     return embed
 
