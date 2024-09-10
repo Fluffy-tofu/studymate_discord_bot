@@ -1,0 +1,7 @@
+SQLAlchemy~=2.0.34
+discord~=2.3.2
+pandas~=2.2.2
+sympy~=1.13.2
+numpy~=2.1.0
+matplotlib~=3.9.2
+python-dotenv~=1.0.1

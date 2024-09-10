@@ -11,7 +11,7 @@ class Test2Cog(commands.Cog):
         self.bot = bot
 
     @app_commands.command(name="test2", description="index commands for studdsymate")
-    async def test_command(self, interaction: discord.Interaction, due_date: discord.utils.format_dt):
+    async def test_command(self, interaction: discord.Interaction):
         print('es')
 
 

@@ -16,6 +16,7 @@ class User(Base):
     discord_global_name = Column(String(100), nullable=True)
 
     study_sessions = relationship("StudySession", back_populates="user", foreign_keys="StudySession.discord_user_id")
+    todos = relationship("Todo", back_populates="user")
 
 
 class StudySession(Base):
