@@ -3,7 +3,7 @@ from discord import app_commands
 from discord.ext import commands
 import io
 
-from bot.utils.plot_single_function import plot_sympy_expression
+from bot.utils.mathematics.plot_single_function import plot_sympy_expression
 from bot.embeds.single_graph_embed import single_graph_embed
 from bot.views.graph_view import GraphFeaturesView
 
@@ -43,7 +43,6 @@ class GraphCog(commands.Cog):
             error_embed.set_footer(text="Please check your input and try again.")
             await interaction.followup.send(embed=error_embed, view=view)
         else:
-
             embed = single_graph_embed(expression=expression, result=result)
 
             image_file = discord.File(io.BytesIO(result['image'].getvalue()), filename="plot.png")

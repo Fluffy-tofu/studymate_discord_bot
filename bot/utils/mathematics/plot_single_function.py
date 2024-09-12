@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from io import BytesIO
 
-from bot.utils.process_expression import ProcessExpression
+from bot.utils.mathematics.process_expression import ProcessExpression
 
 
 def plot_sympy_expression(

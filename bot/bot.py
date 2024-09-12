@@ -22,6 +22,7 @@ class StudyBot(commands.Bot):
         await self.load_extension('bot.cogs.graph_cog')
         await self.load_extension('bot.cogs.test2')
         await self.load_extension('bot.cogs.time_tracking_cog')
+        await self.load_extension('bot.cogs.mandelbrot_cog')
 
         # Sync commands globally
         await self.tree.sync()
