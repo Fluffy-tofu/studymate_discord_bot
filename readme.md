@@ -1,5 +1,12 @@
 # Discord Study Bot
 
+![Study Bot Banner](https://study-bot.com/images/banner.png)
+
+[![Discord](https://img.shields.io/discord/DISCORD_SERVER_ID?color=7289DA&logo=discord&logoColor=white)](https://discord.gg/studybotsupport)
+[![GitHub license](https://img.shields.io/github/license/yourusername/study-bot.svg)](https://github.com/yourusername/study-bot/blob/main/LICENSE)
+[![GitHub stars](https://img.shields.io/github/stars/yourusername/study-bot.svg)](https://github.com/yourusername/study-bot/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/yourusername/study-bot.svg)](https://github.com/yourusername/study-bot/issues)
+
 Welcome to the Discord Study Bot! This bot is designed to help students manage their study sessions, provide reminders, and offer quick access to educational resources.
 
 ## Features
