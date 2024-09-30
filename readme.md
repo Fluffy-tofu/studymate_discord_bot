@@ -1,6 +1,6 @@
 # Discord Study Bot
 
-<img src="https://study-bot.com/icon/github" width="200">
+<img src="https://study-bot.com/icon/github" width="50%">
 
 [![Discord](https://img.shields.io/discord/DISCORD_SERVER_ID?color=7289DA&logo=discord&logoColor=white)](https://discord.gg/studybotsupport)
 [![GitHub license](https://img.shields.io/github/license/yourusername/study-bot.svg)](https://github.com/yourusername/study-bot/blob/main/LICENSE)
