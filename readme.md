@@ -11,16 +11,15 @@ Welcome to the Discord Study Bot! This bot is designed to help students manage t
 
 ## Features
 
-- Manage study sessions
-- Set and receive reminders
-- Access educational resources
-- Track study time
-- Manage to-do lists
+- Manage study sessions and track study time
+- Create and manage to-do lists
+- Set reminders
+- Graph mathematical functions
+- Generate Mandelbrot sets
 
 ## Website
 
 Visit our website at [https://study-bot.com](https://study-bot.com) to:
-
 - Check your total study time
 - View and manage your to-do lists
 - Access additional features and statistics
@@ -34,25 +33,27 @@ To add the Study Bot to your Discord server, use the following invite link:
 ## Getting Started
 
 1. Invite the bot to your server using the link above.
-2. Use the command `!help` to see a list of available commands.
-3. Start your first study session with `!study start`.
+2. Use the command `/help` to see a list of available commands.
+3. Start your first study session with `/start_session`.
 
 ## Commands
 
-Here are some basic commands to get you started:
+Here are some key commands to get you started:
 
-- `!study start`: Begin a study session
-- `!study stop`: End your current study session
-- `!todo add <task>`: Add a new task to your to-do list
-- `!todo list`: View your current to-do list
-- `!remind <time> <message>`: Set a reminder
+- `/start_session`: Begin a study session
+  - Parameter: `subject` - Add a subject for which you want to study
+- `/stop_session`: End your current study session
+- `/todo add`: Add a new task to your to-do list
+  - Parameters: `title`, `description`, `due_date`
+- `/todo list`: View your current to-do list
+- `/graph`: Graph a mathematical function
+  - Parameters: `expression`, `xmin`, `xmax`, `ymin`, `ymax`
 
-For a full list of commands, use `!help` in your Discord server.
+For a full list of commands, use `/help` in your Discord server.
 
 ## Support
 
 If you encounter any issues or have questions, please:
-
 1. Check our [FAQ section](https://study-bot.com/faq) on the website
 2. Join our [support server](https://discord.gg/studybotsupport) for live assistance
 
