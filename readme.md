@@ -4,8 +4,8 @@
 
 [![Discord](https://img.shields.io/discord/DISCORD_SERVER_ID?color=7289DA&logo=discord&logoColor=white)](https://discord.gg/studybotsupport)
 [![GitHub license](https://img.shields.io/github/license/Fluffy-tofu/studymate_discord_bot.svg)](https://github.com/Fluffy-tofu/studymate_discord_bot/blob/main/LICENSE)
-[![GitHub stars](https://img.shields.io/github/stars/Fluffy-tofu/study-bot.svg)](https://github.com/Fluffy-tofu/study-bot/studymate_discord_bot)
-[![GitHub issues](https://img.shields.io/github/issues/Fluffy-tofu/study-bot.svg)](https://github.com/Fluffy-tofu/studymate_discord_bot/issues)
+[![GitHub stars](https://img.shields.io/github/stars/Fluffy-tofu/studymate_discord_bot.svg)](https://github.com/Fluffy-tofu/study-bot/studymate_discord_bot)
+[![GitHub issues](https://img.shields.io/github/issues/Fluffy-tofu/studymate_discord_bot.svg)](https://github.com/Fluffy-tofu/studymate_discord_bot/issues)
 
 Welcome to the Discord Study Bot! This bot is designed to help students manage their study sessions, provide reminders, and offer quick access to educational resources.
 
