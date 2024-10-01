@@ -15,7 +15,6 @@ class StudyBot(commands.Bot):
         super().__init__(command_prefix='!', intents=intents, application_id=APPLICATION_ID)
 
     async def setup_hook(self):
-        # Load all cogs here
         await self.load_extension('bot.cogs.todo_cog')
         await self.load_extension('bot.cogs.test_cog')
         await self.load_extension('bot.cogs.study_cog')
@@ -23,8 +22,8 @@ class StudyBot(commands.Bot):
         await self.load_extension('bot.cogs.test2')
         await self.load_extension('bot.cogs.time_tracking_cog')
         await self.load_extension('bot.cogs.mandelbrot_cog')
+        await self.load_extension('bot.cogs.help_cog')
 
-        # Sync commands globally
         await self.tree.sync()
         print(f'Synced application commands globally')
 

@@ -6,7 +6,7 @@ from bot.embeds.stop_tracking_embed import stop_tracking_embed
 
 class TimeTracker:
     @staticmethod
-    async def start_tracking(interaction: discord.Interaction):
+    async def start_tracking(interaction: discord.Interaction, subject):
         try:
             user_id = interaction.user.id
             username = interaction.user.name

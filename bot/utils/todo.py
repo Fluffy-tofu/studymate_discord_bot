@@ -1,28 +1,38 @@
 import pandas as pd
+from bot.db.database import SessionLocal
+from bot.db.models import User, Todo
+from datetime import datetime
+from sqlalchemy.exc import SQLAlchemyError
 
 
-
-def add_todo_to_csv(todo_item, user_id):
-    csv_file = "to_do.csv"
-    user_id = str(user_id)
-
+def add_todo_to_db(username, user_id, title, description, due_date):
     try:
-        df = pd.read_csv(csv_file)
-    except (FileNotFoundError, pd.errors.EmptyDataError):
-        df = pd.DataFrame()
+        now = datetime.now()
+        with SessionLocal() as db_session:
+            # Query the User by discord_id
+            user = db_session.query(User).filter_by(discord_id=str(user_id)).first()
 
-    if user_id not in df.columns:
-        df[user_id] = None
+            # Create the user in the database if they don't exist
+            if not user:
+                user = User(discord_id=str(user_id), username=username,
+                            email='placeholder@test.com', password_hash='placeholder')
+                db_session.add(user)
+                db_session.flush()
 
-    new_row_dict = {col: None for col in df.columns}
-    new_row_dict[user_id] = str(todo_item)
+            else:
+                new_session = Todo(discord_user_id=user.discord_id,
+                                   title=title,
+                                   description=description,
+                                   due_date=due_date,
+                                   status="pending",
+                                   created_at=now)
+                db_session.add(new_session)
+                db_session.commit()
+    except Exception as e:
+        print(e)
 
-    df = pd.concat([df, pd.DataFrame([new_row_dict])], ignore_index=True)
 
-    df.dropna()
-    df.to_csv(csv_file, index=False)
-
-
+"""
 def list_todos_from_csv(user_id):
     csv_file = "to_do.csv"
     try:
@@ -35,17 +45,56 @@ def list_todos_from_csv(user_id):
     except (FileNotFoundError, pd.errors.EmptyDataError):
         print("why")
         return []
+"""
 
 
-def delete_from_todos_csv(todo_item_index, user_id):
+def delete_todo_from_db(todo_item_index, user_id):
     try:
-        user_id = str(user_id)
-        df = pd.read_csv("to_do.csv")
-        print(df[user_id].count())
-        if 0 <= todo_item_index - 1 < df[user_id].count():
-            df = df[user_id].drop(todo_item_index - 1).reset_index(drop=True)
-            df.to_csv("to_do.csv", index=False)
-            return True
+        with SessionLocal() as db_session:
+            # Query the User by discord_id
+            user = db_session.query(User).filter_by(discord_id=str(user_id)).first()
+
+            if not user:
+                return False
+
+            # Get all todos for the user, ordered by creation time
+            todos = db_session.query(Todo).filter_by(discord_user_id=user.discord_id).order_by(Todo.created_at.asc()).all()
+
+            # Check if the index is valid
+            if 0 <= todo_item_index - 1 < len(todos):
+                todo_to_delete = todos[todo_item_index - 1]
+                db_session.delete(todo_to_delete)
+                db_session.commit()
+                return True
+            return False
+    except SQLAlchemyError as e:
+        print(f"Database error occurred: {e}")
         return False
-    except (FileNotFoundError, pd.errors.EmptyDataError):
-        return False
+
+
+def update_todo_in_db(todo_id: int, **kwargs):
+    try:
+        with SessionLocal() as db_session:
+            todo = db_session.query(Todo).filter(Todo.id == todo_id).first()
+            print(todo.title)
+
+            if not todo:
+                return None, "Todo item not found"
+
+            # Update the fields provided in kwargs
+            for key, value in kwargs.items():
+                if hasattr(todo, key):
+                    setattr(todo, key, value)
+
+            # If due_date is provided, ensure it's a datetime object
+            if 'due_date' in kwargs:
+                todo.due_date = datetime.strptime(kwargs['due_date'], "%Y-%m-%d")
+
+            # Commit the changes to the database
+            db_session.commit()
+            print('test')
+
+            return todo, "Todo updated successfully"
+    except SQLAlchemyError as e:
+        db_session.rollback()
+        return None, f"An error occurred: {str(e)}"

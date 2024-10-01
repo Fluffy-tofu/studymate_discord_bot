@@ -26,6 +26,7 @@ class StudySession(Base):
     start_time = Column(DateTime, nullable=False)
     end_time = Column(DateTime)
     duration = Column(Float)  # In hours
+    subject = Column(String(50), nullable=False)
 
     user = relationship("User", back_populates="study_sessions", foreign_keys=[discord_user_id])
 

@@ -19,7 +19,7 @@ class TimeTrackingCog(commands.Cog):
     )
     async def start_session(self, interaction: discord.Interaction, subject: str):
         print("start_session command called")
-        await TimeTracker.start_tracking(interaction)
+        await TimeTracker.start_tracking(interaction, subject)
 
     @app_commands.command(name="stop_session", description="Stop the timer for a study session")
     async def stop_session(self, interaction: discord.Interaction):

@@ -39,7 +39,7 @@ class MandelBrotCog(commands.Cog):
             try:
                 embed = discord.Embed(
                     title="Mandelbrot Set",
-                    description=f"`Width: {width}`  `Height: {height}`  `Max Iterations: {max_iter}",
+                    description=f"`Width: {width}`  `Height: {height}`  `Max Iterations: {max_iter}`",
                     color=discord.Color.blue()
                 )
                 embed.set_image(url="attachment://mandelbrot.png")
