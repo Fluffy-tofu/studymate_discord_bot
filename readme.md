@@ -57,10 +57,6 @@ If you encounter any issues or have questions, please:
 1. Check our [FAQ section](https://study-bot.com/faq) on the website
 2. Join our [support server](https://discord.gg/studybotsupport) for live assistance
 
-## Contributions
-
-We welcome contributions to improve the Study Bot! Please read our [contribution guidelines](CONTRIBUTING.md) before submitting pull requests.
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
